@@ -180,6 +180,10 @@ ul.row {
     padding: var(--footer-padding);
 }
 
+.footer-address {
+    color: var(--text-color);
+}
+
 .footer-copyright {
     margin: 0;
     font-size: var(--font-size-small);
@@ -188,6 +192,14 @@ ul.row {
 
 .footer ul {
     text-align: right;
+}
+
+.social-link {
+    display: block;
+}
+
+.social-link > svg {
+    fill: var(--text-color);
 }
 
 .row::after {
@@ -200,4 +212,20 @@ ul.row {
 [class^="col-"] {
   float: left;
   padding: .5rem;
+}
+
+.card-services .card-title {
+    margin: 0;
+}
+
+.card-services a {
+    display: block;
+    padding: 2rem;
+    background-color: var(--color-light-grey);
+}
+
+.card-services a:hover {
+    color: var(--color-white);
+    background-color: var(--color-primary);
+    text-decoration: none;
 }

@@ -209,7 +209,7 @@ ul.row {
     background-color: #d73953;
 }
 
-div[class^="col-"] {
+[class^="col-"] {
   float: left;
   padding: .5rem;
 }
