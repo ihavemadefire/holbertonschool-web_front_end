@@ -1,5 +1,4 @@
-/* Import Normalize.css*/
-@import url("https://intranet.hbtn.io/rltoken/UNkEcTi76o3UpDVtzxdkEA");
+@import url("normalize.css");
 
 :root {
     --color-primary: #d73953;
