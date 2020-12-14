@@ -1,6 +1,4 @@
-/* Import Normalize.css*/
-
-@import 'normalize.css';
+@import "normalize.min.css";
 
 :root {
     --color-primary: #d73953;
@@ -49,7 +47,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: var(--font-weight-bold);
 }
 
-a:any-link {
+a:link {
     color: var(--text-color);
     text-decoration: none;
 }
