@@ -123,7 +123,7 @@ ul.row {
     padding: .5rem 1rem .5rem 1rem;
 }
 
-.nav .nav-link:hover{
+.nav .nav-link:hover {
     color: var(--nav-item-link-hover);
 }
 
@@ -139,12 +139,12 @@ ul.row {
     padding: var(--section-padding);
 }
 
-.section-header{
+.section-header {
     text-align: var(--section-header-align);
     padding: var(--section-header-padding);
 }
 
-.section-body{
+.section-body {
     padding: var(--section-body-padding);
 }
 
