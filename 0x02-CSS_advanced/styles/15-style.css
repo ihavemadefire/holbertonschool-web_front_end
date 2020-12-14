@@ -1,6 +1,4 @@
-/* Import Normalize.css*/
-
-@import 'normalize.css';
+@import '../styles/normalize.css';
 
 :root {
     --color-primary: #d73953;
@@ -28,7 +26,8 @@
 }
 
 * {
-    box-sizing: border-box;}
+    box-sizing: border-box;
+}
 
 html {
     scroll-behavior: smooth;
