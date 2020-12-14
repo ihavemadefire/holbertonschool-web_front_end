@@ -1,6 +1,6 @@
 /* Import Normalize.css*/
 
-@import 'normalize.css';
+@import '../styles/normalize.css';
 
 :root {
     --color-primary: #d73953;
