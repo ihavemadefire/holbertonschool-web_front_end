@@ -392,13 +392,11 @@
     flex-wrap: wrap;
   }
 
-  /* Section ABOUT US
-    ============================= */
+  /* Section ABOUT US ============================= */
   
-  .section-about-us div[class^='col-'] {
+  .section-about-us [class*='col-'] {
     align-self: center;
   }
-
 
   /*** 4. CARD ***/
   
