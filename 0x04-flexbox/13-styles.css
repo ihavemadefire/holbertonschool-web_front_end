@@ -578,8 +578,8 @@
       min-width: 20%;
     }
     
-    /* Post Meta
-    ============================= */
+  /* Post Meta
+      ============================= */
 
     .post-meta-list {
       flex-direction: column;
@@ -603,8 +603,8 @@
       margin-bottom: 3rem;
     }
 
-    /* Tag list
-    ============================= */
+  /* Tag list
+      ============================= */
     .tag-list {
       padding: 0;
       list-style: none;
