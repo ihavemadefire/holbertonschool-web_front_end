@@ -10,7 +10,11 @@ function countPrimeNumbers() {
 }
 
 time1 = performance.now();
-countPrimeNumbers();
+setTimeout(function () {
+    for (let k = 0; k < 100; k++) {
+    countPrimeNumbers();
+    }
+});
 time2 = performance.now();
 let totalTime = time2 - time1;
 console.log("Execution time of printing countPrimeNumbers was " +

@@ -1,6 +1,5 @@
 function countPrimeNumbers() {
     let count = 1;
-    let prime;
     for (let i = 2; i < 101; i++) {
         for (let j = 2; j < 101; j++) {
             if (!(i % j === 0))
