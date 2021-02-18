@@ -3,7 +3,7 @@ function countPrimeNumbers() {
     let prime;
     for (let i = 2; i < 101; i++) {
         for (let j = 2; j < 101; j++) {
-            if ( i % j === 0)
+            if (!(i % j === 0))
                 count++;
         }
     }
