@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+        <script src="http://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                function createFamilyTree() {
+                    let table = $("<table></table>");
+                    //header row
+                    let tableHead = $("<thead></thead>");
+                    let tableHeadRow = $("<tr></tr>");
+                    let tableHeadRow1Col1 = $("<th></th>");
+                    let tableHeadRow1Col2 = $("<th></th>");
+                    //first data row
+                    let tableBody = $("<tbody></tbody>");
+                    let tableRow1 = $("<tr></tr>");
+                    let tableRow1Col1 = $("<td></td>");
+                    let tableRow1Col2 = $("<td></td>");
+                    //secod data row
+                    let tableRow2 = $("<tr></tr>");
+                    let tableRow2Col1 = $("<td></td>");
+                    let tableRow2Col2 = $("<td></td>");
+                    //third data row
+                    let tableRow3 = $("<tr></tr>");
+                    let tableRow3Col1 = $("<td></td>");
+                    let tableRow3Col2 = $("<td></td>");
+                    // header row content
+                    $(tableHeadRow1Col1).text("Firstname");
+                    $(tableHeadRow1Col2).text("Lastname");
+                    $(tableHead).append(tableHeadRow);
+                    $(tableHeadRow).append(tableHeadRow1Col1, tableHeadRow1Col2);
+                    // first row content
+                    $(tableRow1Col1).text("Guillaume");
+                    $(tableRow1Col2).text("Salva");
+                    $(tableRow1).append(tableRow1Col1, tableRow1Col2);
+                    // second row content
+                    $(tableRow2Col1).text("Paulette");
+                    $(tableRow2Col2).text("Salva");
+                    $(tableRow2).append(tableRow2Col1, tableRow2Col2);
+                    // third row content
+                    $(tableRow3Col1).text("Antoine");
+                    $(tableRow3Col2).text("Salva");
+                    $(tableRow3).append(tableRow3Col1, tableRow3Col2);
+                    // glue it all together
+                    $(table).append(tableHead, tableBody);
+                    $(tableBody).append(tableRow1, tableRow2, tableRow3);
+                    // append to body
+                    $("body").append(table);
+            }
+            createFamilyTree();
+        });
+        </script>
+        <meta charset="utf-8" />
+        <title>Task 3</title>
+
+    </head>
+
+    <body>
+
+    </body>
+
+</html>
