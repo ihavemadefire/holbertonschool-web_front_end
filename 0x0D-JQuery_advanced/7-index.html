@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+        <script src="http://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                function createSearchForm() {
+                    $("body").append(
+                    "<input></input><input type='submit' id='submitbutton'><ul></ul>"
+                    );
+                    $('#submitbutton').click(function () {
+                        searchKey = $('input:first').val();
+                        queryWikipedia(searchKey);
+                    });
+                }
+                function addNewArticle(id, title, snippet) {
+                    let newli = $("<li></li>");
+                    let p1 = $("<p></p>");
+                    let p2 = $("<p></p>");
+                    let newSpan = $("<span></span>");
+                    let bold = $("<b></b>").html(title);
+                    let spanContent = $(bold);
+                    $(newSpan).html(spanContent);
+                    $(newSpan).prepend(`${id} - `);
+                    $(p1).append(newSpan);
+                    $(p2).html(snippet);
+                    $(newli).append(p1, p2);
+                    $("ul").append(newli);
+                }
+                function queryWikipedia(search) {
+
+                    //modified from the wiki api docs
+                    let url = "https://en.wikipedia.org/w/api.php";
+
+                    let params = {
+                    action: "query",
+                    list: "search",
+                    srsearch: search,
+                    format: "json",
+                    };
+
+                    url = url + "?origin=*";
+                    Object.keys(params).forEach((key) => {
+                    url += "&" + key + "=" + params[key];
+                    });
+                    fetch(url)
+                    .then(function (response) {
+                        return response.json();
+                    })
+                    .then(function (response) {
+                        let searchResults = response.query.search;
+                        searchResults.forEach((result) => {
+                        addNewArticle(result.pageid, result.title, result.snippet);
+                        });
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+                }
+            
+                createSearchForm();
+            });
+        </script>
+        <meta charset="utf-8" />
+        <title>Task 5</title>
+
+    </head>
+
+    <body>
+
+    </body>
+
+</html>
