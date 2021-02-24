@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+        <script src="http://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                function createSearchForm() {
+                    $("body").append(
+                    "<input></input><input type='submit' id='submitbutton'><ul></ul><ul id='pagination'></ul>"
+                    );
+                    $('#submitbutton').click(function () {
+                        searchKey = $('input:first').val();
+                        queryWikipedia(searchKey, 0);
+                    });
+                }
+                function addNewArticle(id, title, snippet) {
+                    let newitem = $("<li></li>");
+                    let p1 = $("<p></p>");
+                    let p2 = $("<p></p>");
+                    let span = $("<span></span>");
+                    let bold = $("<b></b>").html(title);
+                    let spanContent = $(bold);
+                    $(span).html(spanContent);
+                    $(span).prepend(`${id} - `);
+                    $(p1).append(span);
+                    $(p2).html(snippet);
+                    $(newitem).append(p1, p2);
+                    $("ul").append(newitem);
+                }
+                function queryWikipedia(search, offset) {
+
+                    //modified from the wiki api docs
+                    let url = "https://en.wikipedia.org/w/api.php";
+
+                    let params = {
+                    action: "query",
+                    list: "search",
+                    srsearch: search,
+                    format: "json",
+                    sroffset: offset,
+                    };
+
+                    displayLoading(true);
+
+                    url = url + "?origin=*";
+                    Object.keys(params).forEach((key) => {
+                    url += "&" + key + "=" + params[key];
+                    });
+                    fetch(url)
+                    .then(function (response) {
+                        return response.json();
+                    })
+                    .then(function (response) {
+                        displayLoading(false);
+                        let searchResults = response.query.search;
+                        let totalHits = response.query.searchinfo.totalhits;
+                        $('ul:first-of-type').empty();
+                        searchResults.forEach((result) => {
+                        addNewArticle(result.pageid, result.title, result.snippet);
+                        });
+                        buildPagination(totalHits, 10, offset);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+                }
+
+                function buildPagination(numberOfItems, itemsPerPage, currentOffset) {
+                    //clear pagination from previous search
+                    $("ul#pagination").empty();
+                    //determin number of pages
+                    let pageCount = currentOffset / 10;
+                    if (pageCount === 0) pageCount++;
+                    //loop through each article
+                    for (let i = 0; i < (numberOfItems / itemsPerPage); i++) {
+                        // set contents and styling of pagination list
+                        let pageNum = $("<li></li>").html(i + 1);
+                        $(pageNum).css("cursor", "pointer");
+                        $(pageNum).css("margin-left", "10px");
+                        $("ul#pagination").css("display", "flex");
+                        $("ul#pagination").css("list-style", "none");
+                        if (pageCount === i) {$(pageNum).css("font-weight", "bold");}
+                        $(pageNum).click(() => {
+                            queryWikipedia(searchKey, i * 10);
+                        });
+                        $("ul#pagination").append(pageNum);
+                    }
+                }
+                function displayLoading(loading) {
+                    if (loading) {
+                        $("ul:first-of-type").wrap("<div class='loading'></div>");
+                    } else {
+                        $("ul:first-of-type").unwrap();
+                    }
+                }
+                createSearchForm();
+            });
+        </script>
+        <style>
+            .loading {
+                opacity: 0.2;
+            }
+        </style>
+        <meta charset="utf-8" />
+        <title>Task 8
+        </title>
+
+    </head>
+
+    <body>
+
+    </body>
+
+</html>
