@@ -44,7 +44,6 @@
                     let title = $('#title').val();
                     let author = $('#author').val();
                     let obj = {title:title, author:author};
-                    console.log(obj);
                     $.ajax({
                         url: "http://localhost:3000/posts",
                         type: 'POST',
