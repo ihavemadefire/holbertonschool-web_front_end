@@ -77,7 +77,6 @@
                         $(pageNum).css("margin-left", "10px");
                         $("ul#pagination").css("display", "flex");
                         $("ul#pagination").css("list-style", "none");
-
                         if (pageCount === i) {$(pageNum).css("font-weight", "bold");}
                         $(pageNum).click(() => {
                             queryWikipedia(searchKey, i * 10);
