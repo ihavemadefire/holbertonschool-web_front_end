@@ -7,7 +7,7 @@
             $('document').ready(function () {
                 function addPostRow(data) {
 
-                    $('body').append("<p>Post created with id " + data.id + ", title: " + data.title + ", author: " + data.author + "</p>")
+                    $('body').append(`<p><span>Post created with id ${data.id} title: ${data.title} author: ${data.author} </span></p>`)
                 }
 
                 function listPosts() {
