@@ -1,0 +1,64 @@
+{
+    "posts": [
+      {
+        "id": 1,
+        "title": "Middlemarch",
+        "author": "George Elliot"
+      },
+      {
+        "title": "On the Road",
+        "author": "Jack Kerouac",
+        "id": 2
+      },
+      {
+        "title": "Kim",
+        "author": "Rudyard Kipling",
+        "id": 3
+      },
+      {
+        "title": "Hamlet",
+        "author": "William Shakespeare",
+        "id": 4
+      },
+      {
+        "title": "As I Lay Dying",
+        "author": "William Faulkner",
+        "id": 5
+      },
+      {
+        "title": "Down and Out in Paris and London",
+        "author": "George Orwell",
+        "id": 6
+      },
+      {
+        "title": "The Aeneid",
+        "author": "Virgil",
+        "id": 7
+      },
+      {
+        "title": "La Peste",
+        "author": "Albert Camus",
+        "id": 8
+      },
+      {
+        "title": "Native Son",
+        "author": "Richard Wright",
+        "id": 9
+      },
+      {
+        "title": "Rumble Fish",
+        "author": "S.E. Hinton",
+        "id": 10
+      }
+    ],
+    "comments": [
+      {
+        "id": 1,
+        "body": "Best. Book. Ever.",
+        "postId": 1
+      }
+    ],
+    "profile": {
+      "name": "typicode"
+    }
+  }
