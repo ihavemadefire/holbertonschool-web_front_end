@@ -15,7 +15,9 @@
             function showCookies() {
                 let newParagraph = document.createElement("p");
                 let cookies = document.cookie;
-                newParagraph.innerHTML = `Cookies: ${cookies}`;
+                let n = getCookie('firstname');
+                let e = getCookie('email');
+                newParagraph.innerHTML = `Email: ${e} - Firstname: ${n}`;
                 document.body.append(newParagraph);
             }
 
@@ -23,7 +25,7 @@
                 try {
                 let cookie = document.cookie
                     .split('; ')
-                    .find(row => row.startsWith('firstname=' + name))
+                    .find(row => row.startsWith(name + "="))
                     .split('=')[1];
                 return cookie;
                 } catch(error) {
